@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title> Trabalho 02 - Mateus Henrique</title>
+
+	<meta charset = "UTF-8" />
+	<link rel = "stylesheet" href = "css/style.css" />
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</head>
+
+<body>
+
+	
+	<div id = "wrapper">
+
+		<header class = "header">
+
+			<div class = "title"> </div>
+
+			<div class = "login-button"> 
+				<a href = "/" onclick="login()"> Entrar </a>
+			</div>
+			
+		</header>
+
+		<div class ="login-modal">
+				
+			</div>
+
+		<div class = "contactlist">
+
+		<!-- Via Javascript -->
+
+		</div>
+
+		<div class = "content">
+
+			</div>
+
+			<div class = "writemessage">
+					<input id = "message" type = "text" class = "message-input">
+					<input id = "sendMessage" class = "sendmessage" type = "submit" value = "&#xf1d8;" onclick="post()"> 
+			</div>
+
+		</div>
+	
+
+		<script>
+
+			function insertMessage(data) {// GET
+				
+				let messageDiv = document.createElement("div");
+        let messageContent = document.createTextNode(data.messagem);
+        messageDiv.classList.add("message-user");
+
+				let authorSpan = document.createElement("span");
+				let authorName = document.createTextNode(data.autor + " ");
+				authorSpan.classList.add("author-user");
+
+				authorSpan.appendChild(authorName);
+	
+				let iconSpan = document.createElement("span");
+				iconSpan.classList.add("fa", "fa-check", "check-icon");
+
+				authorSpan.appendChild(iconSpan);
+
+				messageDiv.appendChild(messageContent);
+				messageDiv.appendChild(authorSpan);
+
+				content.appendChild(messageDiv);
+
+			}
+
+			let content = document.querySelector(".content");
+
+			let contactList = document.querySelector(".contactlist");
+			let span = document.createElement("span");
+			span.className = "fa fa-user-circle contact-icon";
+			let checkIcon = document.createElement("span");
+			checkIcon.className = "fa fa-check check-icon";
+
+			let url = 'http://rest.learncode.academy/api/mathenr/messages';
+
+			function get() {
+				fetch(url)
+				.then(data => data.json())
+				.then((data) => {
+					for (i = 0; i < data.length; i++) {
+						insertMessage(data[i]);
+					}
+				});
+			}
+
+			window.onload = get();
+
+
+			/* João */
+
+			let contactJoao = document.createElement("a");
+
+			let Joao = document.createTextNode("João");
+
+			contactJoao.appendChild(span.cloneNode(true));
+			contactJoao.appendChild(Joao);
+
+			contactJoao.href = "#void";
+
+			/* José */
+
+			let contactJose = document.createElement("a");
+
+			let Jose = document.createTextNode("José"); /* usa + para varios elementos */
+
+			contactJose.appendChild(span.cloneNode(true));
+			contactJose.appendChild(Jose);
+
+			contactJose.href = "#void";
+
+			/* */
+
+			contactList.appendChild(contactJoao);
+			contactList.appendChild(contactJose); 
+
+			/* calling the functons */
+
+			contactJoao.onclick = function () {
+				showJoaoMessages();
+			};
+
+			contactJose.onclick = function () {
+				showJoseMessages();
+			};
+
+			/* functions */
+
+			function showJoaoMessages() { 
+
+				/* usar JSON */
+
+				content.innerHTML = "";
+
+				let messageUser = document.createElement("div");
+				messageUser.className = "message-user";
+
+				let userText = document.createTextNode("Ei, guri! Tudo bem?");
+				let userAuthor = document.createElement("span");
+				userAuthor.className = "author-user";
+
+				let userAuthorText = document.createTextNode("Você ");
+
+				userAuthor.appendChild(userAuthorText);
+				userAuthor.appendChild(checkIcon);
+
+				messageUser.appendChild(userText);
+				messageUser.appendChild(userAuthor);
+				content.appendChild(messageUser);
+
+			};
+
+			function post() {
+
+			  let message = document.getElementById("message").value;
+				console.log(message);
+
+				fetch(url, {
+      		method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+      		}, body: JSON.stringify({messagem: message, autor: 0}),
+				}).then((data) => {
+					content.innerHTML = ""; //pisca
+				})
+				.then((data) => {
+					get();
+				});
+			}
+
+		</script>
+
+	</body>
+</html>

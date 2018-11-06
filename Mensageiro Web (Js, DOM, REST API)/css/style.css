@@ -1,0 +1,255 @@
+/* RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+/* remember to define focus styles! */
+
+:focus {
+	outline: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+
+blockquote, q {
+	quotes: "" "";
+}
+
+a {
+	text-decoration: none;
+}
+
+/* font-face */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800');
+
+/* BODY */
+
+body {
+	background: url('http://api.thumbr.it/whitenoise-361x370.png?background=f9f9f9ff&noise=626262&density=91&opacity=5');
+}
+/* WRAPPER */
+
+#wrapper {
+	width: 900px;
+	height: 100vh;
+	margin: 5vh auto;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+	border-radius: 4px;
+}
+
+/* HEADER */
+
+.header.header {
+	width: 850px;
+	height: 10vh;
+	background-color: #ff356e;
+	padding: 0 25px;
+	border-radius: 4px 4px 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.title { 
+	content: url(../img/logo.png);
+	width: 6.5vh;
+	height: auto;
+}
+
+.login-button a {
+	font: 0.8em Poppins;
+	font-weight: 600;
+	padding: 10px 5px 10px 5px;
+	text-transform: uppercase;
+	color: #f9f9f9;
+	transition: 0.6s;
+	border-bottom: 3px solid #f9f9f9;
+	border-top: 3px solid #f9f9f9;
+	border-bottom-right-radius: 5px;
+}
+
+.login-button a:hover {
+	opacity: 0.75;
+}
+
+/* CONTACTLIST */
+
+.contactlist {
+	width: 229px;
+	height: 90vh;
+	background-color: #eee;
+	border-right: 1px solid #ccc;
+	float: left;
+	border-radius: 0 0 0 4px;
+}
+
+/* contact */
+
+.contactlist a {
+	width: 209px;
+	padding: 15px 10px 15px 10px;
+	border-bottom: 1px solid #ccc;
+	display: inline-flex;
+	color: #ff356e;
+	font: 1em Poppins;
+	font-weight: 500;
+	transition: 0.6s;
+}
+
+.contactlist a:hover {
+	cursor: pointer;
+	background-color: #f9f9f9;
+}
+
+.contact-icon {
+	margin-right: 10px;
+	font-size: 1.5em !important;
+}
+
+/* CONTENT* */
+
+.content {
+	float: left;
+	width: 640px;
+	height: 76vh;
+	padding: 2vh 15px;
+	background-color: #f9f9f9;
+	font: 0.85em 'HK Grotesk';
+	line-height: 1.35;
+	color: #222;
+	overflow-y: scroll;
+}
+
+/* messages */
+
+.message-user {
+	float: right;
+	clear: both;
+	margin: 0 0 15px 0;
+	padding: 15px;
+	background-color: #eaeaea;
+	border-radius: 4px;
+}
+
+.message-contact {
+	float: left;
+	clear: both;
+	margin: 0 0 15px 0;
+	padding: 15px;
+	background-color: #e3e3e3;
+	border-radius: 4px;
+}
+
+.author-user {
+	text-align: right;
+	margin: 10px 0 0 0;
+	font-size: 0.75em !important;
+	font-weight: 700;
+	display: block;
+	color: #777;
+}
+
+.author-contact {
+	margin-top: 15px;
+	font-size: 0.75em !important;
+	font-weight: 700;
+	display: block;
+	color: #777;
+}
+
+.check-icon {
+	color: #ff356e;
+}
+
+/* writemessage */
+
+.writemessage {
+	float: left;
+	width: 640px;
+	height: 6.9vh;
+	padding: 3vh 15px 0 15px;
+	background-color: #eee;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	border-top: 1px solid #ccc;
+	border-radius: 0 0 4px 0;
+}
+
+
+.message-input {
+	float: left;
+	background: none;
+	border: none;
+	border-bottom: 2px solid #ff356e;
+	width: 585px;
+	height: 15px;
+	margin-right: 20px;
+	padding-bottom: 3px;
+	font: 0.8em Raleway;
+	color: #222;
+}
+
+.sendmessage {
+	float: right;
+	border: none;
+	background: none;
+	font: 1.3em FontAwesome;
+	color: #ff356e;
+	transition: 0.6s;
+}
+
+.sendmessage:hover {
+	opacity: 0.75;
+	cursor: pointer;
+}
+
+/* login-modal */
+
+.login-modal {
+	
+}
+
+
+
+
+
+
